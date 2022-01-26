@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import RestOfApp from './components/RestOfApp';
 import FirebaseProvider from './providers/FirebaseProvider';

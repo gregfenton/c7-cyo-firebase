@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
-import { FirebaseContext } from '../providers/FirebaseProvider';
+import AddHeroForm from './AddHeroForm';
+import HeroesList from './HeroesList';
 import LoginForm from './LoginForm';
 
 const RestOfApp = () => {
@@ -9,8 +10,11 @@ const RestOfApp = () => {
 
   return (
     <div className='App'>
-      <LoginForm/>
+      <LoginForm />
       {user ? `you are logged in! (${user.uid})` : 'not logged in 😔'}
+      <hr />
+      <AddHeroForm />
+      <HeroesList />
     </div>
   );
 };
