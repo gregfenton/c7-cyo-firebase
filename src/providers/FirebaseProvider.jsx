@@ -1,3 +1,4 @@
+import { getAuth } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import React from 'react';
 
@@ -16,8 +17,9 @@ const FirebaseProvider = (props) => {
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
-  const theValues = { app };
+  const theValues = { app, auth };
   return (
     <FirebaseContext.Provider value={theValues}>
       {children}

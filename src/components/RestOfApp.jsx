@@ -1,17 +1,16 @@
 import React, { useContext } from 'react';
+import { AuthContext } from '../providers/AuthProvider';
 import { FirebaseContext } from '../providers/FirebaseProvider';
+import LoginForm from './LoginForm';
 
 const RestOfApp = () => {
-  const fbContext = useContext(FirebaseContext);
-  const app = fbContext.app;
+  const authContext = useContext(AuthContext);
+  const user = authContext.user;
+
   return (
     <div className='App'>
-      <p>
-        Firebase app info:
-        <br />
-        <br />
-        {JSON.stringify(app)}
-      </p>
+      <LoginForm/>
+      {user ? `you are logged in! (${user.uid})` : 'not logged in 😔'}
     </div>
   );
 };
