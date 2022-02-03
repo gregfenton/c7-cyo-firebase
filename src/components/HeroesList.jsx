@@ -7,6 +7,7 @@ import {
 } from 'firebase/firestore';
 import React, { useContext, useEffect, useState } from 'react';
 import { FirebaseContext } from '../providers/FirebaseProvider';
+import UploadImage from './UploadImage';
 
 const HeroesList = () => {
   const [heroes, setHeroes] = useState([]);
@@ -37,6 +38,7 @@ const HeroesList = () => {
             <li>name: {hero.name}</li>
             <li>vehicle: {hero.vehicle}</li>
             <li>docId: {hero.DOC_ID}</li>
+            <li>image: {hero.imageUrl ? <img src={hero.imageUrl}/> : <UploadImage docId={hero.DOC_ID} heroName={hero.name}/>}</li>
             <hr />
           </ul>
         );
