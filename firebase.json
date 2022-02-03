@@ -33,5 +33,7 @@
     "ui": {
       "enabled": true
     }
+  },
+  "functions": {
   }
 }
