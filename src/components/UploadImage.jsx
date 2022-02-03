@@ -2,7 +2,7 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import React, { useContext, useState } from 'react';
 import { FirebaseContext } from '../providers/FirebaseProvider';
-
+import LinearProgress from '@mui/material/LinearProgress';
 const UploadImage = (props) => {
   const docId = props.docId;
   const heroName = props.heroName;
@@ -54,6 +54,7 @@ const UploadImage = (props) => {
       />
       <button onClick={handleUpload}>UPLOAD IMAGE</button>
       {progress ? <div>progress: {progress}%</div> : <div />}
+      <LinearProgress variant='determinate' value={progress} />
     </div>
   );
 };
