@@ -1,14 +1,15 @@
 import { getAuth } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import {getStorage} from 'firebase/storage'; 
-
+import { getStorage } from 'firebase/storage';
+import { getFunctions } from 'firebase/functions';
 import React from 'react';
 
 export const FirebaseContext = React.createContext();
 
 const FirebaseProvider = (props) => {
   const children = props.children;
+
   const firebaseConfig = {
     apiKey: 'AIzaSyDRgy8S2g2kRWGtYTVMIis-srtz9xePLuc',
     authDomain: 'c7-cyo-firebase-2-ea41c.firebaseapp.com',
@@ -22,9 +23,10 @@ const FirebaseProvider = (props) => {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const db = getFirestore(app);
-  const store = getStorage(app); 
+  const store = getStorage(app);
+  const cloudFuncs = getFunctions(app);
 
-  const theValues = { app, auth, db, store };
+  const theValues = { app, auth, db, store, cloudFuncs };
   return (
     <FirebaseContext.Provider value={theValues}>
       {children}
